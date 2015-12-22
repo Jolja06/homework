@@ -1,0 +1,45 @@
+.container{
+	width:90%;
+	background: #c4c4c4;
+	text-align: center;
+}
+.slider{
+	position: relative;
+	width: 40%;
+	overflow: hidden;
+	display: inline-block;
+}
+.slider .slider__list{
+	position: relative;
+	width:100%;
+}
+.slider .slider__item{
+	position:absolute;
+	top:0;
+	left:0;
+	z-index: 0;
+	width: 100%
+}
+.slider .slider__item img{
+	width: 100%;
+	display: block;
+}
+.slider .slider__item img.active{
+	z-index: 1;
+	position: relative;
+}
+.slider .slider__item img.inslide{
+	z-index: 2;
+}
+.slider__controls-button{
+	position: absolute;
+	top:50%;
+	display:block;
+	z-index: 3;
+	font-size: 50%;
+	height: 50px;
+	text-align: center;
+	width: 50px;
+	margin-top:-25px;
+	
+}
