@@ -18,10 +18,24 @@ var slider = (function(){
 					firstSlide = slides.first(),
 					lastSlide = slides.last();
 
-				if ($('.slider__controls-button_next'))	{
+				if ($this.hasClass('slider__controls-button_next'))	{
 
-					_this.moveSlide(nextSlide, 'forward');
+					if(nextSlide.length){
+						_this.moveSlide(nextSlide, 'forward');
+					} else {
+						_this.moveSlide(firstSlide, 'forward');
+					}
 
+					
+
+				} else {
+					
+
+					if(prevSlide.length) {
+						_this.moveSlide(prevSlide, 'backward');
+					} else{
+						_this.moveSlide(lastSlide, 'backward');
+					}
 				}
 			}); 
 
@@ -32,7 +46,7 @@ var slider = (function(){
 			var 
 				container = slide.closest('.slider'),
 				slides = container.find('.slider__item'),
-				active = slides.filter('.active'),
+				activeSlide = slides.filter('.active'),
 				slideWidth = slides.width(),
 				duration = 500,
 				reqCssPosition = 0,
@@ -48,6 +62,19 @@ var slider = (function(){
 			}	
 
 			slide.css('left', reqCssPosition).addClass('inslide');
+
+			var movableSlide = slides.filter('.inslide');
+
+			activeSlide.animate({left: reqSlideStrafe}, duration);
+
+			movableSlide.animate({left: 0}, duration, function(){
+				var $this = $(this);
+
+				slides.css('left', '-40px').removeClass('active');
+
+				$this.toggleClass('inslide active');
+			});
+
 
 		}
 

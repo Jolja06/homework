@@ -34,8 +34,7 @@
 }
 .slider .slider__item.inslide{
 	z-index: 2;
-	left: -40px;
-	top: -16px;
+	
 }
 .slider__controls{
 	position: absolute;
@@ -44,12 +43,12 @@
 	position: absolute;
 	top:50%;
 	display:block;
-	font-size: 50%;
 	height: 50px;
 	text-align: center;
 	width: 50px;
 	margin-top:-25px;
 	font-size: 120%;
+	z-index: 4;
 }
 .slider__controls-button a{
 	text-decoration: none;
@@ -57,11 +56,11 @@
 }
 .slider__controls-button_next{
 
-	position: absolute;
+	left: 40px;
 	
 }
 .slider__controls-button_prev{
 
-	position: absolute;
+
 	
 }
